@@ -1,10 +1,10 @@
 use std::fs;
 
-// fn read_txt(filepath: &str) -> String {
-//     let content = fs::read_to_string(filepath)
-//         .expect("Should have been able to read the file");
-//     return content;
-// }
+fn read_txt(filepath: &str) -> String {
+    let content = fs::read_to_string(filepath)
+        .expect("Should have been able to read the file");
+    return content;
+}
 
 // fn split(string: &String, by: &str) -> Vec<String> {
 //     string.split(by).map(|s| s.to_string()).collect()
@@ -14,27 +14,24 @@ use std::fs;
 //     string.trim().to_string()
 // }
 
-// fn process_string(string: &str) -> Vec<String> {
-//     string.split("  ")
-//         .map(|s| s.trim().to_string())
-//         .filter(|s| &s.to_string() != "")
-//         .collect()
-// }
+fn process_string(string: &str) -> Vec<String> {
+    string.split("  ")
+        .map(|s| s.trim().to_string())
+        .filter(|s| &s.to_string() != "")
+        .collect()
+}
 
 fn main() {
-    // let filepath = String::from("vocabulary.txt");
-    // let content = read_txt(&filepath);
-    // // let mut vocab = split(&content, "  ");
-    // let vocab: Vec<String> = content.split("  ")
-    //     .map(|s| s.trim().to_string())
-    //     .filter(|s| &s.to_string() != "")
-    //     .collect();
-    // // vocab = vocab.iter()
-    // //     .map(|s| trim(&s))
-    // //     .filter(|s| &s.to_string() != "")
-    // //     .collect();
+    
+    let filepath = String::from("vocabulary.txt");
+    let content = read_txt(&filepath);
+    
+    let vocab: Vec<String> = content.split("  ")
+        .map(|s| s.trim().to_string())
+        .filter(|s| &s.to_string() != "")
+        .collect();
 
-    // println!("{:?}", vocab);
+    println!("{:?}", vocab);
 }
 
 #[cfg(test)]
@@ -47,11 +44,4 @@ mod tests {
     }
 
     // TODO cercare il modo in cui si verifica che fallisca
-}
-
-fn process_string(string: &str) -> Vec<String> {
-    string.split("  ")
-        .map(|s| s.trim().to_string())
-        .filter(|s| &s.to_string() != "")
-        .collect()
 }
